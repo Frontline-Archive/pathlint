@@ -1,0 +1,18 @@
+{
+  "name": "filedirname-lint",
+  "version": "0.0.1",
+  "description": "Enforces specific file/directory name patterns for uniformity. It matches files/directories in the current working directory. Great for projects involving several developers.",
+  "main": "./lib/filename-lint.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "Vincent John Cagay",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "glob": "^5.0.14"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "prettyjson": "^1.1.3"
+  }
+}
