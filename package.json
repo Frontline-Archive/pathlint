@@ -2,7 +2,7 @@
   "name": "filedirname-lint",
   "version": "0.0.1",
   "description": "Enforces specific file/directory name patterns for uniformity. It matches files/directories in the current working directory. Great for projects involving several developers.",
-  "main": "./lib/filename-lint.js",
+  "main": "./lib/filedirname-lint.js",
   "scripts": {
     "test": "gulp test"
   },
@@ -13,6 +13,9 @@
   },
   "devDependencies": {
     "gulp": "^3.9.0",
-    "prettyjson": "^1.1.3"
+    "gulp-istanbul": "^0.10.0",
+    "gulp-mocha": "^2.1.3",
+    "prettyjson": "^1.1.3",
+    "should": "^7.0.4"
   }
 }
