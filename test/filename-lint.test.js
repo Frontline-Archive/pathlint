@@ -1,14 +1,26 @@
+// temporary test
+'use strict';
+
 var fileNameLint = require( process.cwd() + '/lib/filedirname-lint' );
+
 require( 'should' );
 
 var config = {
-    // 'nodir' : false,
-    // 'removeFileExt' : false,
-    'globRegexp' : {
-        // 'test/test-files/**' : 'CAMEL_CASE'
-        'test/test-files/**/*.html' : 'DASHED',
-        'test/test-files/**/*.js' :   'CAMEL_CASE',
-    }
+	'globRegexp' : {
+		'test/test-files/**/*.html' : 'DASHED',
+		'test/test-files/**/*.js'   : 'CAMEL_CASE'
+	}
 };
 
-// describe( '' )
+describe( 'filedirname-lint', function () {
+
+	before( function () {
+		console.log( fileNameLint );
+		console.log( config );
+	} );
+
+	it( 'should work as expected', function () {
+		true.shoud.be.equal( true );
+	} );
+
+} );
