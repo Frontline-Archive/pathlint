@@ -1,6 +1,6 @@
 'use strict';
 
-var fileNameLint = require( process.cwd() + '/lib/filedirname-lint' );
+var fileDirNameLint = require( process.cwd() + '/lib/filedirname-lint' );
 
 require( 'should' );
 
@@ -17,7 +17,7 @@ describe( 'filedirname-lint', function () {
 		};
 
 		before( function ( done ) {
-			fileNameLint( config, function ( err, results ) {
+			fileDirNameLint( config, function ( err, results ) {
 				checkResults = results;
 				done();
 			} );
@@ -43,7 +43,7 @@ describe( 'filedirname-lint', function () {
 		};
 
 		before( function ( done ) {
-			fileNameLint( config, function ( err, results ) {
+			fileDirNameLint( config, function ( err, results ) {
 				checkResults = results;
 				done();
 			} );
@@ -69,7 +69,7 @@ describe( 'filedirname-lint', function () {
 		};
 
 		before( function ( done ) {
-			fileNameLint( config, function ( err, results ) {
+			fileDirNameLint( config, function ( err, results ) {
 				checkResults = results;
 				done();
 			} );
@@ -94,7 +94,7 @@ describe( 'filedirname-lint', function () {
 		};
 
 		before( function ( done ) {
-			fileNameLint( config, function ( err, results ) {
+			fileDirNameLint( config, function ( err, results ) {
 				checkResults = results;
 				done();
 			} );
@@ -106,6 +106,47 @@ describe( 'filedirname-lint', function () {
 			checkResults[ 'test/test-files/camelCase/*' ]
 				[ 'test/test-files/camelCase/testJavascript1.js' ].should.be.false;
 		} );
+
+	} );
+
+	describe( 'an error occurred during globbing', function () {
+
+		var proxyquire = require( 'proxyquire' );
+
+		var globStub   = function ( globStr, options, callback ) {
+			callback( new Error( 'An error occurred while globbing' ), {} );
+		};
+
+		var fileDirNameLintProxy = proxyquire( process.cwd() + '/lib/filedirname-lint', { 'glob' : globStub } );
+
+		var checkResults = {};
+
+		var config       = {
+			'globRegexp'    : {
+				'test/test-files/camelCase/*' : new RegExp( /^([^0-9]*)$/ )
+			}
+		};
+
+		var inducedError;
+
+		before( function ( done ) {
+			fileDirNameLintProxy( config, function ( err, results ) {
+
+				if ( err ) {
+					inducedError = err;
+				} else {
+					checkResults = results;
+				}
+
+				done();
+			} );
+			done();
+		} );
+
+		it( 'should retun an error', function () {
+			inducedError.should.be.an.instanceOf( Error );
+			inducedError.message.should.be.equal( 'An error occurred while globbing' );
+		} )
 
 	} );
 
