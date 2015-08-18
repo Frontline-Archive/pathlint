@@ -18,8 +18,14 @@ describe( 'filedirname-lint', function () {
 
 		before( function ( done ) {
 			fileDirNameLint( config, function ( err, results ) {
+
+				if ( err ) {
+					console.log( err );
+				}
+
 				checkResults = results;
 				done();
+
 			} );
 		} );
 
@@ -44,8 +50,14 @@ describe( 'filedirname-lint', function () {
 
 		before( function ( done ) {
 			fileDirNameLint( config, function ( err, results ) {
+
+				if ( err ) {
+					console.log( err );
+				}
+
 				checkResults = results;
 				done();
+
 			} );
 		} );
 
@@ -70,16 +82,22 @@ describe( 'filedirname-lint', function () {
 
 		before( function ( done ) {
 			fileDirNameLint( config, function ( err, results ) {
+
+				if ( err ) {
+					console.log( err );
+				}
+
 				checkResults = results;
 				done();
+
 			} );
 		} );
 
 		it( 'should return with filenames with no fileExtensions checked', function () {
 			checkResults[ 'test/test-files/camelCase/*' ]
-				[ 'test/test-files/camelCase/testJavascript1.js' ].should.be.false;
+				[ 'test/test-files/camelCase/testJavascript1.js' ].should.be.equal( false );
 			checkResults[ 'test/test-files/camelCase/*' ]
-				[ 'test/test-files/camelCase/testJavascript1.js' ].should.be.false;
+				[ 'test/test-files/camelCase/testJavascript1.js' ].should.be.equal( false );
 		} );
 
 	} );
@@ -88,23 +106,29 @@ describe( 'filedirname-lint', function () {
 
 		var checkResults = {};
 		var config       = {
-			'globRegexp'    : {
+			'globRegexp' : {
 				'test/test-files/camelCase/*' : new RegExp( /^([^0-9]*)$/ )
 			}
 		};
 
 		before( function ( done ) {
 			fileDirNameLint( config, function ( err, results ) {
+
+				if ( err ) {
+					console.log( err );
+				}
+
 				checkResults = results;
 				done();
+
 			} );
 		} );
 
 		it( 'should return with filenames checked with custom regex', function () {
 			checkResults[ 'test/test-files/camelCase/*' ]
-				[ 'test/test-files/camelCase/testJavascript1.js' ].should.be.false;
+				[ 'test/test-files/camelCase/testJavascript1.js' ].should.be.equal( false );
 			checkResults[ 'test/test-files/camelCase/*' ]
-				[ 'test/test-files/camelCase/testJavascript1.js' ].should.be.false;
+				[ 'test/test-files/camelCase/testJavascript1.js' ].should.be.equal( false );
 		} );
 
 	} );
@@ -116,8 +140,14 @@ describe( 'filedirname-lint', function () {
 
 		before( function ( done ) {
 			fileDirNameLint( config, function ( err, results ) {
+
+				if ( err ) {
+					console.log( err );
+				}
+
 				checkResults = results;
 				done();
+
 			} );
 		} );
 
@@ -140,7 +170,7 @@ describe( 'filedirname-lint', function () {
 		var checkResults = {};
 
 		var config = {
-			'globRegexp'    : {
+			'globRegexp' : {
 				'test/test-files/camelCase/*' : new RegExp( /^([^0-9]*)$/ )
 			}
 		};
@@ -150,19 +180,21 @@ describe( 'filedirname-lint', function () {
 		before( function ( done ) {
 			fileDirNameLintProxy( config, function ( err, results ) {
 
-				if ( err )
+				if ( err ) {
 					inducedError = err;
+				}
 
 				checkResults = results;
-
 				done();
+
 			} );
 		} );
 
 		it( 'should retun an error', function () {
 			inducedError.should.be.an.instanceOf( Error );
 			inducedError.message.should.be.equal( 'An error occurred while globbing' );
-		} )
+			Object.keys( checkResults ).length.should.equal( 0 );
+		} );
 
 	} );
 
