@@ -109,11 +109,29 @@ describe( 'filedirname-lint', function () {
 
 	} );
 
+	describe( 'globRegexp is not passed', function () {
+
+		var checkResults = {};
+		var config       = {}; // there are no arguments passed
+
+		before( function ( done ) {
+			fileDirNameLint( config, function ( err, results ) {
+				checkResults = results;
+				done();
+			} );
+		} );
+
+		it( 'should return empty result', function () {
+			Object.keys( checkResults ).length.should.equal( 0 );
+		} );
+
+	} );
+
 	describe( 'an error occurred during globbing', function () {
 
 		var proxyquire = require( 'proxyquire' );
 
-		var globStub   = function ( globStr, options, callback ) {
+		var globStub = function ( globStr, options, callback ) {
 			callback( new Error( 'An error occurred while globbing' ), {} );
 		};
 
@@ -121,7 +139,7 @@ describe( 'filedirname-lint', function () {
 
 		var checkResults = {};
 
-		var config       = {
+		var config = {
 			'globRegexp'    : {
 				'test/test-files/camelCase/*' : new RegExp( /^([^0-9]*)$/ )
 			}
@@ -132,15 +150,13 @@ describe( 'filedirname-lint', function () {
 		before( function ( done ) {
 			fileDirNameLintProxy( config, function ( err, results ) {
 
-				if ( err ) {
+				if ( err )
 					inducedError = err;
-				} else {
-					checkResults = results;
-				}
+
+				checkResults = results;
 
 				done();
 			} );
-			done();
 		} );
 
 		it( 'should retun an error', function () {
