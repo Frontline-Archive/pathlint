@@ -12,7 +12,7 @@ gulp.task( 'test', function () {
 			'lib/**/*.js'
 		],
 
-		'test' : [ 'test/(!test-files/)/*.js' ]
+		'test' : [ 'test/filedirname-lint.test.js' ]
 	};
 
 	var mochaOpts = {
