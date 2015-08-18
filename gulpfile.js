@@ -3,8 +3,10 @@
 var gulp            = require( 'gulp' );
 var mocha           = require( 'gulp-mocha' );
 var istanbul        = require( 'gulp-istanbul' );
+var fileDirNameLint = require( './lib/filedirname-lint' );
+var prettyjson      = require( 'prettyjson' );
 
-gulp.task( 'test', function () {
+gulp.task( 'test', [ 'lint' ], function () {
 
 	var paths = {
 		'cover' : [
@@ -12,7 +14,7 @@ gulp.task( 'test', function () {
 			'lib/**/*.js'
 		],
 
-		'test' : [ 'test/filedirname-lint.test.js' ]
+		'test' : [ 'test/filedirname-lint.js' ]
 	};
 
 	var mochaOpts = {
@@ -41,4 +43,27 @@ gulp.task( 'test', function () {
 					throw new Error( err );
 				} );
 		} );
+} );
+
+gulp.task( 'lint', function ( done ) {
+
+	var config = {
+		'globRegexp' : {
+			'lib/**/*'  : 'HYPHEN_CASE',
+			'test/*.js' : 'HYPHEN_CASE'
+		}
+	};
+
+	fileDirNameLint( config, function ( err, results ) {
+
+		console.log( prettyjson.render( results ) );
+
+		if ( err ) {
+			throw new Error( err );
+		}
+
+		done();
+
+	} );
+
 } );
