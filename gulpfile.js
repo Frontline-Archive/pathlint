@@ -10,7 +10,6 @@ gulp.task( 'test', [ 'lint' ], function () {
 
 	var paths = {
 		'cover' : [
-			'!lib/**/presets.js',
 			'lib/**/*.js'
 		],
 

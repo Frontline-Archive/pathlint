@@ -190,9 +190,42 @@ describe( 'filedirname-lint', function () {
 			} );
 		} );
 
-		it( 'should retun an error', function () {
+		it( 'should return an error', function () {
 			inducedError.should.be.an.instanceOf( Error );
 			inducedError.message.should.be.equal( 'An error occurred while globbing' );
+			Object.keys( checkResults ).length.should.equal( 0 );
+		} );
+
+	} );
+
+	describe( 'when a string pattern is passed and it is not one of the presets', function () {
+
+		var checkResults = {};
+
+		var config = {
+			'globRegexp' : {
+				'test/test-files/camelCase/*' : 'INVALID_PATTERN_NAME'
+			}
+		};
+
+		var inducedError;
+
+		before( function ( done ) {
+			fileDirNameLint( config, function ( err, results ) {
+
+				if ( err ) {
+					inducedError = err;
+				}
+
+				checkResults = results;
+				done();
+
+			} );
+		} );
+
+		it( 'should return an error', function () {
+			inducedError.should.be.an.instanceOf( Error );
+			inducedError.message.should.be.equal( 'Invalid pattern for "test/test-files/camelCase/*"' );
 			Object.keys( checkResults ).length.should.equal( 0 );
 		} );
 
