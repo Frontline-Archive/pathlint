@@ -2,14 +2,47 @@
   "name": "filedirname-lint",
   "version": "0.0.1",
   "description": "Enforces specific file/directory name patterns for uniformity. It matches files/directories in the current working directory. Great for projects involving several developers.",
+  "author": {
+      "name": "Vincent John Cagay",
+      "email": "vjcagay@gmail.com"
+  },
+  "contributors": [
+    {
+        "name": "Daniel Arbiol",
+        "email": "arbiol.daniel0727@gmail.com"
+    },
+    {
+        "name": "Dedito Cantila",
+        "email": "dedito.cantila@gmail.com"
+    }
+  ],
+  "keywords": [
+    "lint",
+    "linting",
+    "filename",
+    "file-name",
+    "file name",
+    "directory",
+    "directoryname",
+    "directory name",
+    "foldername",
+    "folder-name",
+    "folder name"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vjcagay/filedirname-lint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vjcagay/filedirname-lint/issues"
+  },
+  "license": "GPL-3.0",
   "main": "./lib/filedirname-lint.js",
   "scripts": {
     "test": "npm run eslint -- --reset --eslintrc ./ && npm run jscs -- ./ && gulp test",
     "eslint": "eslint",
     "jscs": "jscs"
   },
-  "author": "Vincent John Cagay",
-  "license": "GPL-3.0",
   "dependencies": {
     "glob": "^5.0.14"
   },
