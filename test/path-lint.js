@@ -1,6 +1,6 @@
 'use strict';
 
-var fileDirNameLint = require( process.cwd() + '/lib/filedirname-lint' );
+var pathLint = require( process.cwd() + '/lib/path-lint' );
 
 require( 'should' );
 
@@ -17,7 +17,7 @@ describe( 'filedirname-lint', function () {
 		};
 
 		before( function ( done ) {
-			fileDirNameLint( config, function ( err, results ) {
+			pathLint( config, function ( err, results ) {
 
 				if ( err ) {
 					console.log( err );
@@ -49,7 +49,7 @@ describe( 'filedirname-lint', function () {
 		};
 
 		before( function ( done ) {
-			fileDirNameLint( config, function ( err, results ) {
+			pathLint( config, function ( err, results ) {
 
 				if ( err ) {
 					console.log( err );
@@ -81,7 +81,7 @@ describe( 'filedirname-lint', function () {
 		};
 
 		before( function ( done ) {
-			fileDirNameLint( config, function ( err, results ) {
+			pathLint( config, function ( err, results ) {
 
 				if ( err ) {
 					console.log( err );
@@ -112,7 +112,7 @@ describe( 'filedirname-lint', function () {
 		};
 
 		before( function ( done ) {
-			fileDirNameLint( config, function ( err, results ) {
+			pathLint( config, function ( err, results ) {
 
 				if ( err ) {
 					console.log( err );
@@ -139,7 +139,7 @@ describe( 'filedirname-lint', function () {
 		var config       = {}; // there are no arguments passed
 
 		before( function ( done ) {
-			fileDirNameLint( config, function ( err, results ) {
+			pathLint( config, function ( err, results ) {
 
 				if ( err ) {
 					console.log( err );
@@ -165,7 +165,7 @@ describe( 'filedirname-lint', function () {
 			callback( new Error( 'An error occurred while globbing' ), {} );
 		};
 
-		var fileDirNameLintProxy = proxyquire( process.cwd() + '/lib/filedirname-lint', { 'glob' : globStub } );
+		var pathLintProxy = proxyquire( process.cwd() + '/lib/path-lint', { 'glob' : globStub } );
 
 		var checkResults = {};
 
@@ -178,7 +178,7 @@ describe( 'filedirname-lint', function () {
 		var inducedError;
 
 		before( function ( done ) {
-			fileDirNameLintProxy( config, function ( err, results ) {
+			pathLintProxy( config, function ( err, results ) {
 
 				if ( err ) {
 					inducedError = err;
@@ -211,7 +211,7 @@ describe( 'filedirname-lint', function () {
 		var inducedError;
 
 		before( function ( done ) {
-			fileDirNameLint( config, function ( err, results ) {
+			pathLint( config, function ( err, results ) {
 
 				if ( err ) {
 					inducedError = err;

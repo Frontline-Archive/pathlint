@@ -1,19 +1,19 @@
 'use strict';
 
-var gulp            = require( 'gulp' );
-var mocha           = require( 'gulp-mocha' );
-var istanbul        = require( 'gulp-istanbul' );
-var fileDirNameLint = require( './lib/filedirname-lint' );
-var prettyjson      = require( 'prettyjson' );
+var gulp       = require( 'gulp' );
+var mocha      = require( 'gulp-mocha' );
+var istanbul   = require( 'gulp-istanbul' );
+var pathLint   = require( './lib/path-lint' );
+var prettyjson = require( 'prettyjson' );
 
-gulp.task( 'test', [ 'lint' ], function () {
+gulp.task( 'test', [ 'path-lint' ], function () {
 
 	var paths = {
 		'cover' : [
 			'lib/**/*.js'
 		],
 
-		'test' : [ 'test/filedirname-lint.js' ]
+		'test' : [ 'test/path-lint.js' ]
 	};
 
 	var mochaOpts = {
@@ -44,7 +44,7 @@ gulp.task( 'test', [ 'lint' ], function () {
 		} );
 } );
 
-gulp.task( 'lint', function ( done ) {
+gulp.task( 'path-lint', function ( done ) {
 
 	var config = {
 		'globRegexp' : {
@@ -53,7 +53,7 @@ gulp.task( 'lint', function ( done ) {
 		}
 	};
 
-	fileDirNameLint( config, function ( err, results ) {
+	pathLint( config, function ( err, results ) {
 
 		console.log( prettyjson.render( results ) );
 
