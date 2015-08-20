@@ -1,20 +1,20 @@
-# filedirname-lint
-Enforces specific file/directory name patterns for uniformity. It matches files/directories in the current working directory. Great for projects involving several developers.
+# path-lint
+Enforces specific file/directory name patterns for uniformity. It matches file/directory names in the current working directory. Great for projects involving several developers.
 
 #### Usage example
 ```javascript
-var fileDirNameLint = require( 'filedirname-lint' );
+var pathLint = require( 'path-lint' );
 
 var config = {
-    'nodir' : true,
+    'nodir'         : true,
     'removeFileExt' : true,
-    'globRegexp' : {
+    'globRegexp'    : {
         'lib/**/*'  : 'CAMEL_CASE',
         'test/*.js' : 'HYPHEN_CASE'
     }
 }
 
-fileDirNameLint( config, function ( err, results ) {
+pathLint( config, function ( err, results ) {
     if ( err ) {
         console.log( err );
     }
@@ -40,8 +40,8 @@ Returns:
 ```javascript
 {
     'lib/**/*': {
-        'lib/filedirname-lint.js' : true,
-        'lib/presets.js'          : true
+        'lib/path-lint.js' : true,
+        'lib/presets.js'   : true
     },
     'test/*.js' : {
         'test/filedirname-lint.js' : true
@@ -67,10 +67,10 @@ To run the unit tests, do `gulp test` in your terminal. If nothing complains, co
 We strive for 100% coverage in all categories (Statements, Branches, Functions, Lines) to make sure the code is working as intended. If you have problems reaching 100%, review your code or unit test, or contact us, we might be able to help you. :-)
 
 ## Contributing
-This project abides to the [Open Code of Conduct](http://todogroup.org/opencodeofconduct/#filedirname-lint/opensource@github.com). By participating, you will honor this code.
+This project abides to the [Open Code of Conduct](http://todogroup.org/opencodeofconduct/#path-lint/opensource@github.com). By participating, you will honor this code.
 
 1. Fork
 2. Create a branch and commit your changes
-3. Run `npm test` to check for linting errors, if there are any, fix them, then push
+3. Run `npm test` to check for linting errors if there are any, fix them, then push
 4. Open a pull request
 5. While waiting, enjoy yourself walking your pet dog, or go to the gym.
