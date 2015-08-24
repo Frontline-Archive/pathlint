@@ -1,6 +1,6 @@
 {
-  "name": "pathlint",
-  "version": "0.0.1",
+  "name": "@sinet/pathlint",
+  "version": "1.0.0",
   "description": "Enforces specific file/directory name patterns for uniformity. It matches files/directories in the current working directory. Great for projects involving several developers.",
   "author": {
     "name": "Vincent John Cagay",
@@ -14,6 +14,10 @@
     {
       "name": "Dedito Cantila",
       "email": "dedito.cantila@gmail.com"
+    },
+    {
+      "name": "Vincent John Cagay",
+      "email": "vjcagay@gmail.com"
     }
   ],
   "keywords": [
@@ -27,16 +31,18 @@
     "directory name",
     "foldername",
     "folder-name",
-    "folder name"
+    "folder name",
+    "path",
+    "pathlint"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/vjcagay/filedirname-lint.git"
+    "url": "https://github.com/School-Improvement-Network/pathlint.git"
   },
   "bugs": {
-    "url": "https://github.com/vjcagay/filedirname-lint/issues"
+    "url": "https://github.com/School-Improvement-Network/pathlint/issues"
   },
-  "license": "GPL-3.0",
+  "license": "MIT",
   "main": "./lib/pathlint.js",
   "scripts": {
     "test": "npm run eslint -- --reset --eslintrc ./ && npm run jscs -- ./ && npm run pathlint && gulp test",
