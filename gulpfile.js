@@ -33,6 +33,11 @@ gulp.task( 'test', function () {
 				.pipe( istanbul.writeReports( {
 					'reporters' : [ 'text', 'text-summary' ]
 				} ) )
+				.pipe( istanbul.enforceThresholds( {
+					'thresholds' : {
+						'global' : 100
+					}
+				} ) )
 				.on( 'error', function ( err ) {
 					throw new Error( err );
 				} );
