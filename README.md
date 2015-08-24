@@ -44,7 +44,7 @@ Returns:
         'lib/presets.js'   : true
     },
     'test/*.js' : {
-        'test/filedirname-lint.js' : true
+        'test/pathlint.js' : true
     }
 }
 ```
@@ -59,6 +59,32 @@ If you want to use a pattern that is not available in the presets (well, at leas
 }
 ```
 This is useful when you decide to include the file extension in your checking, provided that `removeFileExt` is `false`, since the presets only assume that file extensions are ignored.
+
+#### As a Command-Line Tool
+```bash
+pathlint --config .yourconfigfile
+```
+Returns a prettified version of the linting results on the command line. Using the example results above, its command line version result would look like this:
+```bash
+lib/**/*:
+  lib/pathlint.js: true
+  lib/presets.js:  true
+test/*.js:
+  test/pathlint.js: true
+```
+It receives only one argument (as of the moment) which is `--config .yourconfigfile`, where `.yourconfigfile` contains the configuration values in linting. Using the example above, `.yourconfigfile` would contain:
+```JSON
+{
+	"globRegexp" : {
+		"lib/**/*"  : "HYPHEN_CASE",
+		"test/*.js" : "HYPHEN_CASE",
+		"bin/*"     : "HYPHEN_CASE"
+	}
+}
+```
+> *Important:* Always use double-quotes in object literals, or else parsing this file will not work.
+
+If no `--config` is passed, the `pathlint` command will automatically look for a `.pathlintrc` file in the current working directory. If the specified file or `.pathlintrc` is not found, `pathlint` will return an error.
 
 ## Unit Testing
 To run the unit tests, do `gulp test` in your terminal. If nothing complains, congrats!
