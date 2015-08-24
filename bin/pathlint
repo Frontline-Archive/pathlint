@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+
+var cmdArgs    = require( 'command-line-args' );
+var fs         = require( 'fs' );
+var prettyjson = require( 'prettyjson' );
+var pathLint   = require( '../lib/pathlint' );
+var exitCode   = 0;
+
+var cli = cmdArgs( [ {
+	'name'         : 'config',
+	'type'         : String,
+	'defaultValue' : '.pathlintrc'
+} ] );
+
+var options = cli.parse();
+
+fs.readFile( options.config, 'UTF-8', function ( err, data ) {
+
+	if ( err ) {
+		console.error( 'Config file "' + options.config + '" does not exist.' );
+		exitCode = 1;
+	} else {
+
+		pathLint( JSON.parse( data ), function ( err, results ) {
+
+			if ( err ) {
+				console.error( err );
+				exitCode = 1;
+			}
+
+			console.log( prettyjson.render( results ) );
+
+		} );
+
+	}
+
+} );
+
+process.on( 'exit', function () {
+	process.exit( exitCode );
+} );
