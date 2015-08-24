@@ -39,7 +39,7 @@
   "license": "GPL-3.0",
   "main": "./lib/pathlint.js",
   "scripts": {
-    "test": "npm run eslint -- --reset --eslintrc ./ && npm run jscs -- ./ && gulp test",
+    "test": "npm run eslint -- --reset --eslintrc ./ && npm run jscs -- ./ && npm run pathlint && gulp test",
     "eslint": "eslint",
     "jscs": "jscs",
     "pathlint": "pathlint"
