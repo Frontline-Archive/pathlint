@@ -1,19 +1,19 @@
 {
-  "name": "filedirname-lint",
+  "name": "pathlint",
   "version": "0.0.1",
   "description": "Enforces specific file/directory name patterns for uniformity. It matches files/directories in the current working directory. Great for projects involving several developers.",
   "author": {
-      "name": "Vincent John Cagay",
-      "email": "vjcagay@gmail.com"
+    "name": "Vincent John Cagay",
+    "email": "vjcagay@gmail.com"
   },
   "contributors": [
     {
-        "name": "Daniel Arbiol",
-        "email": "arbiol.daniel0727@gmail.com"
+      "name": "Daniel Arbiol",
+      "email": "arbiol.daniel0727@gmail.com"
     },
     {
-        "name": "Dedito Cantila",
-        "email": "dedito.cantila@gmail.com"
+      "name": "Dedito Cantila",
+      "email": "dedito.cantila@gmail.com"
     }
   ],
   "keywords": [
@@ -37,13 +37,15 @@
     "url": "https://github.com/vjcagay/filedirname-lint/issues"
   },
   "license": "GPL-3.0",
-  "main": "./lib/path-lint.js",
+  "main": "./lib/pathlint.js",
   "scripts": {
     "test": "npm run eslint -- --reset --eslintrc ./ && npm run jscs -- ./ && gulp test",
     "eslint": "eslint",
-    "jscs": "jscs"
+    "jscs": "jscs",
+    "pathlint": "pathlint"
   },
   "dependencies": {
+    "command-line-args": "^1.0.0",
     "glob": "^5.0.14"
   },
   "devDependencies": {
@@ -56,5 +58,8 @@
     "proxyquire": "^1.7.0",
     "should": "^7.0.4",
     "sinet-coding-conventions": "^1.31.3"
+  },
+  "bin": {
+    "pathlint": "bin/pathlint"
   }
 }

@@ -3,17 +3,14 @@
 var gulp       = require( 'gulp' );
 var mocha      = require( 'gulp-mocha' );
 var istanbul   = require( 'gulp-istanbul' );
-var pathLint   = require( './lib/path-lint' );
+var pathLint   = require( './lib/pathlint' );
 var prettyjson = require( 'prettyjson' );
 
 gulp.task( 'test', [ 'path-lint' ], function () {
 
 	var paths = {
-		'cover' : [
-			'lib/**/*.js'
-		],
-
-		'test' : [ 'test/path-lint.js' ]
+		'cover' : [ 'lib/**/*.js' ],
+		'test'  : [ 'test/*.js' ]
 	};
 
 	var mochaOpts = {
@@ -49,7 +46,8 @@ gulp.task( 'path-lint', function ( done ) {
 	var config = {
 		'globRegexp' : {
 			'lib/**/*'  : 'HYPHEN_CASE',
-			'test/*.js' : 'HYPHEN_CASE'
+			'test/*.js' : 'HYPHEN_CASE',
+			'bin/*'     : 'HYPHEN_CASE'
 		}
 	};
 

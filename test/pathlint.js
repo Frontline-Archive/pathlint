@@ -1,10 +1,10 @@
 'use strict';
 
-var pathLint = require( process.cwd() + '/lib/path-lint' );
+var pathLint = require( process.cwd() + '/lib/pathlint' );
 
 require( 'should' );
 
-describe( 'filedirname-lint', function () {
+describe( 'pathlint', function () {
 
 	describe( 'camelCase with directories ENABLED', function () {
 
@@ -165,7 +165,7 @@ describe( 'filedirname-lint', function () {
 			callback( new Error( 'An error occurred while globbing' ), {} );
 		};
 
-		var pathLintProxy = proxyquire( process.cwd() + '/lib/path-lint', { 'glob' : globStub } );
+		var pathLintProxy = proxyquire( process.cwd() + '/lib/pathlint', { 'glob' : globStub } );
 
 		var checkResults = {};
 
