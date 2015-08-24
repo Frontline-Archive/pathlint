@@ -1,9 +1,9 @@
-# path-lint
+# pathlint
 Enforces specific file/directory name patterns for uniformity. It matches file/directory names in the current working directory. Great for projects involving several developers.
 
 #### Usage example
 ```javascript
-var pathLint = require( 'path-lint' );
+var pathLint = require( 'pathlint' );
 
 var config = {
     'nodir'         : true,
@@ -40,7 +40,7 @@ Returns:
 ```javascript
 {
     'lib/**/*': {
-        'lib/path-lint.js' : true,
+        'lib/pathlint.js' : true,
         'lib/presets.js'   : true
     },
     'test/*.js' : {
@@ -67,7 +67,7 @@ To run the unit tests, do `gulp test` in your terminal. If nothing complains, co
 We strive for 100% coverage in all categories (Statements, Branches, Functions, Lines) to make sure the code is working as intended. If you have problems reaching 100%, review your code or unit test, or contact us, we might be able to help you. :-)
 
 ## Contributing
-This project abides to the [Open Code of Conduct](http://todogroup.org/opencodeofconduct/#path-lint/opensource@github.com). By participating, you will honor this code.
+This project abides to the [Open Code of Conduct](http://todogroup.org/opencodeofconduct/#pathlint/opensource@github.com). By participating, you will honor this code.
 
 1. Fork
 2. Create a branch and commit your changes
