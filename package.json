@@ -1,0 +1,71 @@
+{
+  "name": "@sinet/pathlint",
+  "version": "1.0.0",
+  "description": "Enforces specific file/directory name patterns for uniformity. It matches files/directories in the current working directory. Great for projects involving several developers.",
+  "author": {
+    "name": "Vincent John Cagay",
+    "email": "vjcagay@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Daniel Arbiol",
+      "email": "arbiol.daniel0727@gmail.com"
+    },
+    {
+      "name": "Dedito Cantila",
+      "email": "dedito.cantila@gmail.com"
+    },
+    {
+      "name": "Vincent John Cagay",
+      "email": "vjcagay@gmail.com"
+    }
+  ],
+  "keywords": [
+    "lint",
+    "linting",
+    "filename",
+    "file-name",
+    "file name",
+    "directory",
+    "directoryname",
+    "directory name",
+    "foldername",
+    "folder-name",
+    "folder name",
+    "path",
+    "pathlint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/School-Improvement-Network/pathlint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/School-Improvement-Network/pathlint/issues"
+  },
+  "license": "MIT",
+  "main": "./lib/pathlint.js",
+  "scripts": {
+    "test": "npm run eslint -- --reset --eslintrc ./ && npm run jscs -- ./ && npm run pathlint && gulp test",
+    "eslint": "eslint",
+    "jscs": "jscs",
+    "pathlint": "pathlint"
+  },
+  "dependencies": {
+    "command-line-args": "^1.0.0",
+    "glob": "^5.0.14"
+  },
+  "devDependencies": {
+    "eslint": "0.23.0",
+    "gulp": "^3.9.0",
+    "gulp-istanbul": "^0.10.0",
+    "gulp-mocha": "^2.1.3",
+    "jscs": "1.12.0",
+    "prettyjson": "^1.1.3",
+    "proxyquire": "^1.7.0",
+    "should": "^7.0.4",
+    "sinet-coding-conventions": "^1.31.3"
+  },
+  "bin": {
+    "pathlint": "bin/pathlint"
+  }
+}

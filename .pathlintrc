@@ -1,0 +1,7 @@
+{
+	"globRegexp" : {
+		"lib/**/*"  : "HYPHEN_CASE",
+		"test/*.js" : "HYPHEN_CASE",
+		"bin/*"     : "HYPHEN_CASE"
+	}
+}
