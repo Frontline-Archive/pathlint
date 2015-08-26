@@ -3,12 +3,10 @@ machine:
     version: 0.12.4
 
 dependencies:
-  pre:
-    - npm install
-
   post:
     - npm link
 
 test:
   override:
+    - npm run lint
     - npm test

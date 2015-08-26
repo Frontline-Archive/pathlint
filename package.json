@@ -42,10 +42,15 @@
   "license": "MIT",
   "main": "./lib/pathlint.js",
   "scripts": {
-    "test": "npm run eslint -- --reset --eslintrc ./ && npm run jscs -- ./ && npm run pathlint && gulp test",
+    "test": "gulp test",
+    "lint": "npm run eslint -- --reset --eslintrc ./ && npm run jscs -- ./ && npm run pathlint",
+    "setup-dev": "npm install && npm run copy-git-hooks",
+    "copy-git-hooks": "chmod +x scripts/copy-git-hooks.sh && scripts/copy-git-hooks.sh",
+    "mocha": "mocha",
     "eslint": "eslint",
     "jscs": "jscs",
-    "pathlint": "pathlint"
+    "pathlint": "pathlint",
+    "nsp": "nsp"
   },
   "dependencies": {
     "command-line-args": "^1.0.0",
@@ -59,6 +64,7 @@
     "gulp-istanbul": "^0.10.0",
     "gulp-mocha": "^2.1.3",
     "jscs": "1.12.0",
+    "nsp": "^1.1.0",
     "prettyjson": "^1.1.3",
     "proxyquire": "^1.7.0",
     "should": "^7.0.4",

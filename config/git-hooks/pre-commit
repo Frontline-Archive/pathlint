@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+bold=`tput bold`
+underline=`tput smul`
+attention=`tput setab 1`
+normal=`tput sgr0`
+separator="\n\n\n\n"
+
+npm run copy-git-hooks
+
+runs=(
+	"eslint -- --reset --eslintrc ./"
+	"jscs -- ./"
+	"pathlint"
+	"nsp -- audit-package",
+	"test"
+)
+
+for i in "${runs[@]}"
+do :
+	printf "${separator}${underline}${bold}npm run $i${normal}"
+	npm run $i
+done

@@ -97,6 +97,6 @@ This project abides to the [Open Code of Conduct](http://todogroup.org/opencodeo
 
 1. Fork
 2. Create a branch and commit your changes
-3. Run `npm test` to check for linting errors if there are any, fix them, then push
+3. Run `npm run lint` to check for linting, `npm test` for unit tests, if there are any errors, fix them, then push
 4. Open a pull request
 5. While waiting, enjoy yourself walking your pet dog, or go to the gym.
