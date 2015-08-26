@@ -52,6 +52,8 @@
     "glob": "^5.0.14"
   },
   "devDependencies": {
+    "@sinet/coverage-enforcement": "^1.2.0",
+    "del": "^1.2.1",
     "eslint": "0.23.0",
     "gulp": "^3.9.0",
     "gulp-istanbul": "^0.10.0",
