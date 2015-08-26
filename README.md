@@ -32,7 +32,7 @@ Parameters:
 - `globRegexp` accepts a set of globs and their corresponding `RegExp` patterns. Patterns could be one of the presets or custom RegExp object you can define. In the example above, `'test/*.js' : 'HYPHEN_CASE'` means all files that have the `.js` file extension will have their filenames checked whether they satify the `HYPHEN_CASE` pattern or not.
 
 > Read more [here](https://github.com/isaacs/node-glob) to know more how globbing works.
-> Presets assume `removeFileExt` is `true`. You need to create your own `RegExp` pattern if you want file extensions to be included in checking. To see the list of presets, go [here](https://github.com/vjcagay/filedirname-lint/blob/master/lib/presets.js).
+> Presets assume `removeFileExt` is `true`. You need to create your own `RegExp` pattern if you want file extensions to be included in checking. To see the list of presets, go [here](https://github.com/School-Improvement-Network/pathlint/blob/master/lib/presets.js).
 
 Returns:
 - `err` if an error occurs. Errors will be either the number of mismatches in the file/directory names after checking them with the defined patterns or other errors that may occur during the checking (e.g. during globbing). Otherwise, this returns `null`.
