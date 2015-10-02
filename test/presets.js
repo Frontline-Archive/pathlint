@@ -7,7 +7,7 @@ require( 'should' );
 describe( 'presets', function () {
 
 	describe( 'camel case', function () {
-		it( 'should match CAMEL_CASE pattern only', function () {
+		it( '-- should match CAMEL_CASE pattern only', function () {
 			presets.CAMEL_CASE.test( 't' ).should.be.equal( true );
 			presets.CAMEL_CASE.test( 'tC' ).should.be.equal( true );
 			presets.CAMEL_CASE.test( 'tCsSS' ).should.be.equal( true );
@@ -28,7 +28,7 @@ describe( 'presets', function () {
 	} );
 
 	describe( 'upper case', function () {
-		it( 'should match UPPER_CASE pattern only', function () {
+		it( '-- should match UPPER_CASE pattern only', function () {
 			presets.UPPER_CASE.test( 'T' ).should.be.equal( true );
 			presets.UPPER_CASE.test( 'TEST' ).should.be.equal( true );
 			presets.UPPER_CASE.test( 'T3ST' ).should.be.equal( true );
@@ -59,7 +59,7 @@ describe( 'presets', function () {
 	} );
 
 	describe( 'hyphen case', function () {
-		it( 'should match HYPHEN_CASE pattern only', function () {
+		it( '-- should match HYPHEN_CASE pattern only', function () {
 			presets.HYPHEN_CASE.test( 't-t' ).should.be.equal( true );
 			presets.HYPHEN_CASE.test( 'v1' ).should.be.equal( true );
 			presets.HYPHEN_CASE.test( 't3st-test-test' ).should.be.equal( true );
@@ -76,7 +76,7 @@ describe( 'presets', function () {
 	} );
 
 	describe( 'snake case', function () {
-		it( 'should match SNAKE_CASE pattern only', function () {
+		it( '-- should match SNAKE_CASE pattern only', function () {
 			presets.SNAKE_CASE.test( 't_t' ).should.be.equal( true );
 			presets.SNAKE_CASE.test( 'v1' ).should.be.equal( true );
 			presets.SNAKE_CASE.test( 't3st_test_test' ).should.be.equal( true );
@@ -93,7 +93,7 @@ describe( 'presets', function () {
 	} );
 
 	describe( 'pascal case', function () {
-		it( 'should match PASCAL_CASE pattern only', function () {
+		it( '-- should match PASCAL_CASE pattern only', function () {
 			presets.PASCAL_CASE.test( 'T' ).should.be.equal( true );
 			presets.PASCAL_CASE.test( 'TC' ).should.be.equal( true );
 			presets.PASCAL_CASE.test( 'TcsSS' ).should.be.equal( true );
@@ -114,7 +114,7 @@ describe( 'presets', function () {
 	} );
 
 	describe( 'dot case', function () {
-		it( 'should match DOT_CASE pattern only', function () {
+		it( '-- should match DOT_CASE pattern only', function () {
 			presets.DOT_CASE.test( 'test.js' ).should.be.equal( true );
 			presets.DOT_CASE.test( 'v1' ).should.be.equal( true );
 			presets.DOT_CASE.test( 't3st.test.test' ).should.be.equal( true );

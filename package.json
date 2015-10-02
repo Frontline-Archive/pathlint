@@ -40,7 +40,7 @@
     "url": "https://github.com/School-Improvement-Network/pathlint/issues"
   },
   "license": "MIT",
-  "main": "./lib/pathlint.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "gulp test",
     "lint": "npm run eslint -- --reset --eslintrc ./ && npm run jscs -- ./ && npm run pathlint",
@@ -49,12 +49,15 @@
     "mocha": "mocha",
     "eslint": "eslint",
     "jscs": "jscs",
-    "pathlint": "pathlint",
+    "pathlint": "node bin/pathlint",
     "nsp": "nsp"
   },
   "dependencies": {
+    "async": "^1.4.2",
+    "bluebird": "^2.10.2",
     "command-line-args": "^1.0.0",
     "glob": "^5.0.14",
+    "lodash": "^3.10.1",
     "prettyjson": "^1.1.3"
   },
   "devDependencies": {

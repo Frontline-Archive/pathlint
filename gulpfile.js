@@ -11,7 +11,7 @@ var enforcement = require( '@sinet/coverage-enforcement' );
 
 var paths = {
 	'cover'    : 'lib/**/*.js',
-	'test'     : 'test/*.js',
+	'test'     : 'test/**/*.js',
 	'coverage' : 'instrumented'
 };
 

@@ -1,7 +1,9 @@
 {
-	"globRegexp" : {
-		"lib/**/*"  : "HYPHEN_CASE",
-		"test/*.js" : "HYPHEN_CASE",
-		"bin/*"     : "HYPHEN_CASE"
+	"pathLint" : {
+		"globRegexp" : {
+			"lib/**/*"  : "HYPHEN_CASE",
+			"test/*.js" : "HYPHEN_CASE",
+			"bin/*"     : "HYPHEN_CASE"
+		}
 	}
 }
