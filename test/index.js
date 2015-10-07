@@ -35,7 +35,7 @@ describe( 'linter', function () {
 		} );
 	} );
 
-	describe( 'when invalid regex pattern is used', function () {
+	describe( 'when custom regex pattern is used', function () {
 		before( function ( done ) {
 			var config = {
 				'pathLint' : {
@@ -54,8 +54,10 @@ describe( 'linter', function () {
 			} );
 		} );
 
-		it( '-- should return error', function () {
-			error.pathLint.message.should.be.equal( 'Invalid pattern for "test/test-files/withErrors/*"' );
+		it( '-- should return result', function () {
+			result.pathLint[ 'test/test-files/withErrors/*' ].should.have
+				.property( 'test/test-files/withErrors/testWith-Errors.js' )
+				.and.be.equal( true );
 		} );
 	} );
 
