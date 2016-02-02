@@ -1,4 +1,8 @@
 # pathlint
+[![Build Status][ci-badge]][ci-badge-link]
+[![Dependency Status][david-badge]][david-badge-link]
+[![devDependency Status][david-dev-badge]][david-dev-badge-link]
+
 Enforces specific file/directory name patterns for uniformity. It matches file/directory names in the current working directory. Great for projects involving several developers.
 
 #### Usage example
@@ -100,3 +104,12 @@ This project abides to the [Open Code of Conduct](http://todogroup.org/opencodeo
 3. Run `npm run lint` to check for linting, `npm test` for unit tests, if there are any errors, fix them, then push
 4. Open a pull request
 5. While waiting, enjoy yourself walking your pet dog, or go to the gym.
+
+
+[david-badge]: https://david-dm.org/School-Improvement-Network/pathlint.svg
+[david-badge-link]: https://david-dm.org/School-Improvement-Network/pathlint
+[david-dev-badge]: https://david-dm.org/School-Improvement-Network/pathlint/dev-status.svg
+[david-dev-badge-link]: https://david-dm.org/School-Improvement-Network/pathlint
+[david-dev-badge-link]: https://david-dm.org/School-Improvement-Network/pathlint#info=devDependencies
+[ci-badge]: https://circleci.com/gh/School-Improvement-Network/pathlint.svg?style=shield
+[ci-badge-link]: https://circleci.com/gh/School-Improvement-Network/pathlint
