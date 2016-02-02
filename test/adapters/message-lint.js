@@ -40,5 +40,4 @@ describe( 'messagelint', function () {
 				.and.have.property( 'v1.Test' ).and.be.equal( false );
 		} );
 	} );
-
 } );

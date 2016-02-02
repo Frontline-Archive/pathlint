@@ -34,7 +34,6 @@ gulp.task( 'test', [ 'clean-coverage' ], function () {
 		.pipe( istanbul.hookRequire() )
 
 		.on( 'finish', function () {
-
 			gulp.src( paths.test, { 'read' : false } )
 
 				.pipe(
@@ -73,5 +72,4 @@ gulp.task( 'test', [ 'clean-coverage' ], function () {
 					process.exit();
 				} );
 		} );
-
 } );

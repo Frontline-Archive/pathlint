@@ -40,5 +40,4 @@ describe( 'pathlint', function () {
 				.property( 'test/test-files/withErrors/testWith-Errors.js' );
 		} );
 	} );
-
 } );

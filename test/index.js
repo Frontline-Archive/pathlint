@@ -6,8 +6,7 @@ var proxyquire = require( 'proxyquire' );
 require( 'should' );
 
 describe( 'linter', function () {
-	var error;
-	var result;
+	var error, result;
 
 	describe( 'when empty config is passed', function () {
 		before(  function () {
@@ -147,7 +146,8 @@ describe( 'linter', function () {
 		} );
 
 		it( '-- should not return error object', function () {
-			var hasError = ( error.pathLint === null );
+			var hasError = error.pathLint === null;
+
 			hasError.should.be.equal( true );
 		} );
 	} );

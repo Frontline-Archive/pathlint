@@ -9,4 +9,5 @@ dependencies:
 test:
   override:
     - npm run lint
+    - npm run nsp -- check --warn-only
     - npm test

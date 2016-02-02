@@ -5,7 +5,6 @@ var presets = require( process.cwd() + '/lib/presets' );
 require( 'should' );
 
 describe( 'presets', function () {
-
 	describe( 'camel case', function () {
 		it( '-- should match CAMEL_CASE pattern only', function () {
 			presets.CAMEL_CASE.test( 't' ).should.be.equal( true );
@@ -129,5 +128,4 @@ describe( 'presets', function () {
 			presets.DOT_CASE.test( 'Test.js' ).should.be.equal( false );
 		} );
 	} );
-
 } );
