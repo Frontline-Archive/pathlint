@@ -53,10 +53,10 @@
     "nsp": "nsp"
   },
   "dependencies": {
-    "async": "^1.4.2",
-    "bluebird": "^2.10.2",
-    "command-line-args": "^1.0.0",
-    "glob": "^5.0.14",
+    "async": "^1.5.2",
+    "bluebird": "^3.2.1",
+    "command-line-args": "^2.1.4",
+    "glob": "^6.0.4",
     "lodash": "^3.10.1",
     "prettyjson": "^1.1.3"
   },
