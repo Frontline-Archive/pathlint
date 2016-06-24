@@ -2,6 +2,6 @@
 
 module.exports = {
 	'config' : {
-		'messageType' : 'v1Test'
+		'messageType' : 'v1.test-version.create'
 	}
 };
