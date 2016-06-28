@@ -57,6 +57,7 @@
     "bluebird": "^3.2.1",
     "command-line-args": "^2.1.4",
     "glob": "^6.0.4",
+    "jsonlint": "^1.6.2",
     "lodash": "^3.10.1",
     "prettyjson": "^1.1.3"
   },

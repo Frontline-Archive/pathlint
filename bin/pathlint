@@ -1,10 +1,11 @@
 #!/usr/bin/env node
+'use strict';
 
 var cmdArgs    = require( 'command-line-args' );
 var fs         = require( 'fs' );
 var prettyjson = require( 'prettyjson' );
 var pathLint   = require( '../lib/index' );
-var exitCode   = 0;
+var jsonlint   = require( 'jsonlint' );
 
 var cli = cmdArgs( [ {
 	'name'         : 'config',
@@ -14,27 +15,27 @@ var cli = cmdArgs( [ {
 
 var options = cli.parse();
 
-fs.readFile( options.config, 'UTF-8', function ( err, data ) {
-
-	if ( err ) {
+fs.readFile( options.config, 'UTF-8', function ( readError, data ) {
+	if ( readError ) {
 		console.error( 'Config file "' + options.config + '" does not exist.' );
-		exitCode = 1;
+		process.exitCode = 1;
 	} else {
-		pathLint( JSON.parse( data ), function ( err, results ) {
+		var contents;
 
-			if ( err.pathLint || err.messageLint ) {
-				console.error( err );
-				exitCode = 1;
-			}
+		try {
+			contents = jsonlint.parse( data );
 
-			console.log( prettyjson.render( results ) );
+			pathLint( contents, function ( lintError, results ) {
+				if ( lintError.pathLint || lintError.messageLint ) {
+					console.error( lintError );
+					process.exitCode = 1;
+				}
 
-		} );
-
+				console.log( prettyjson.render( results ) );
+			} );
+		} catch ( parseError ) {
+			process.exitCode = 1;
+			console.log( 'Error parsing: ' + options.config, '\n', parseError );
+		}
 	}
-
-} );
-
-process.on( 'exit', function () {
-	process.exit( exitCode );
 } );
