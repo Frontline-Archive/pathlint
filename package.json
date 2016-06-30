@@ -34,10 +34,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/School-Improvement-Network/pathlint.git"
+    "url": "https://github.com/sinet/pathlint.git"
   },
   "bugs": {
-    "url": "https://github.com/School-Improvement-Network/pathlint/issues"
+    "url": "https://github.com/sinet/pathlint/issues"
   },
   "license": "MIT",
   "main": "./lib/index.js",
