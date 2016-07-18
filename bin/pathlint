@@ -26,8 +26,18 @@ fs.readFile( options.config, 'UTF-8', function ( readError, data ) {
 			contents = jsonlint.parse( data );
 
 			pathLint( contents, function ( lintError, results ) {
-				if ( lintError.pathLint || lintError.messageLint ) {
-					console.error( lintError );
+				var errorCount = 0;
+
+				if( lintError.pathLint ) {
+					errorCount = errorCount + parseInt( lintError.pathLint.message );
+				}
+
+				if ( lintError.messageLint ) {
+					errorCount = errorCount + parseInt( lintError.messageLint.message );
+				}
+
+				if ( errorCount > 0 ) {
+					console.error( 'linter: ' + errorCount + ' error/s found.' );
 					process.exitCode = 1;
 				}
 

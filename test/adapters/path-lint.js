@@ -20,11 +20,8 @@ describe( 'pathlint', function () {
 			res = pathLint( args );
 		} );
 
-		it( '-- should return correct object', function () {
-			res.results[ 'test/test-files/camelCase/*' ].should.have
-				.property( 'test/test-files/camelCase/camelCaseDir1' );
-			res.results[ 'test/test-files/camelCase/*' ].should.have
-				.property( 'test/test-files/camelCase/camelCaseDir2' );
+		it( '-- should return empty object', function () {
+			JSON.stringify( res.results[ 'test/test-files/camelCase/*' ] ).should.be.equal( '{}' );
 		} );
 	} );
 

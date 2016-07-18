@@ -20,10 +20,8 @@ describe( 'messagelint', function () {
 			res = messageLint( args );
 		} );
 
-		it( '-- should return correct object', function () {
-			res.results[ 'test/test-files/messageType/*' ].should.have
-				.property( 'test/test-files/messageType/messageType1.js' )
-				.and.have.property( 'v1.test-version.create' ).and.be.equal( true );
+		it( '-- should return empty object', function () {
+			JSON.stringify( res.results[ 'test/test-files/messageType/*' ] ).should.be.equal( '{}' );
 		} );
 	} );
 
@@ -57,6 +55,10 @@ describe( 'messagelint', function () {
 			res.results[ 'test/test-files/messageType/*' ].should.have
 				.property( 'test/test-files/messageType/messageType2.js' )
 				.and.have.property( 'v1.test-version-create' ).and.be.equal( false );
+
+			res.results[ 'test/test-files/messageType/*' ].should.have
+				.property( 'test/test-files/messageType/messageType2.js' )
+				.and.have.property( 'v1.test.' ).and.be.equal( false );
 		} );
 	} );
 } );

@@ -5,5 +5,10 @@
 			"test/*.js" : "HYPHEN_CASE",
 			"bin/*"     : "HYPHEN_CASE"
 		}
+	},
+	"messageLint" : {
+		"globRegexp" : {
+			"lib/**/*.js" : "^v[0-9]+(.[a-z\\-]+){2}"
+		}
 	}
 }

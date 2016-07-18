@@ -38,8 +38,7 @@ describe( 'linter', function () {
 		before( function ( done ) {
 			var config = {
 				'pathLint' : {
-					'nodir' : true,
-
+					'nodir'      : true,
 					'globRegexp' : {
 						'test/test-files/withErrors/*' : 'test'
 					}
@@ -53,10 +52,8 @@ describe( 'linter', function () {
 			} );
 		} );
 
-		it( '-- should return result', function () {
-			result.pathLint[ 'test/test-files/withErrors/*' ].should.have
-				.property( 'test/test-files/withErrors/testWith-Errors.js' )
-				.and.be.equal( true );
+		it( '-- should return empty', function () {
+			JSON.stringify( result ).should.be.equal( '{}' );
 		} );
 	} );
 
@@ -110,7 +107,7 @@ describe( 'linter', function () {
 		} );
 
 		it( '-- should return error', function () {
-			error.pathLint.message.should.be.equal( 'linter: 1 error/s found.' );
+			error.pathLint.message.should.be.equal( '1' );
 		} );
 	} );
 
@@ -139,14 +136,14 @@ describe( 'linter', function () {
 		} );
 
 		it( '-- should return result object', function () {
-			result.pathLint[ 'test/test-files/camelCase/*' ].should.have
-				.property( 'test/test-files/camelCase/camelCaseDir1' );
-			result.pathLint[ 'test/test-files/camelCase/*' ].should.have
-				.property( 'test/test-files/camelCase/camelCaseDir2' );
+			result.messageLint[ 'test/test-files/messageType/*' ].should.have
+				.property( 'test/test-files/messageType/messageType1.js' );
+			result.messageLint[ 'test/test-files/messageType/*' ].should.have
+				.property( 'test/test-files/messageType/messageType2.js' );
 		} );
 
 		it( '-- should not return error object', function () {
-			var hasError = error.pathLint === null;
+			var hasError = error.pathLint === undefined;
 
 			hasError.should.be.equal( true );
 		} );
