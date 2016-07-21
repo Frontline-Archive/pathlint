@@ -1,6 +1,6 @@
 {
   "name": "@sinet/pathlint",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Enforces specific file/directory name patterns for uniformity. It matches files/directories in the current working directory. Great for projects involving several developers.",
   "author": "School Improvement Network",
   "contributors": [
