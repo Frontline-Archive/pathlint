@@ -12,7 +12,7 @@ describe( 'messagelint', function () {
 		'results'    : { 'test/test-files/messageType/*' : {} },
 		'errCounter' : 0,
 		'testPath'   : 'test/test-files/messageType/*',
-		'pattern'    : /^v[0-9]+(.[a-z\\-]+){2}/
+		'pattern'    : /^v[0-9]+(\.[a-z-]+){2}$/
 	};
 
 	describe( 'when invoked', function () {
